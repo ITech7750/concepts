@@ -66,56 +66,5 @@ public:
     }
 };
 
-/*
-#include <concepts>
-#include <functional>
-#include <vector>
-#include <iostream>
 
-template <typename T>
-class Matrix {
-public:
-    std::vector<std::vector<T>> elems;
-
-    explicit Matrix(std::vector<std::vector<T>> elems) : elems(std::move(elems)) {}
-
-    Matrix operator+(const Matrix& other) const {
-        size_t rows = elems.size(),
-        cols = elems[0].size();
-        std::vector<std::vector<T>> result(rows, std::vector<T>(cols, T(0)));
-        for (size_t i = 0; i < rows; ++i)
-            for (size_t j = 0; j < cols; ++j)
-                result[i][j] = elems[i][j] + other.elems[i][j];
-        return Matrix(result);
-    }
-
-    Matrix operator*(const Matrix& other) const {
-        size_t rows = elems.size(),
-        cols = other.elems[0].size(),
-        inner = elems[0].size();
-        if (inner == other.elems.size()) {
-            std::vector<std::vector<T>> result(rows, std::vector<T>(cols, T(0)));
-            for (size_t i = 0; i < rows; ++i)
-                for (size_t j = 0; j < cols; ++j)
-                    for (size_t k = 0; k < inner; ++k)
-                        result[i][j] += elems[i][k] * other.elems[k][j];
-            return Matrix(result);
-        }
-    }
-
-    Matrix operator-() const {
-        size_t rows = elems.size(),
-        cols = elems[0].size();
-        std::vector<std::vector<T>> negElems(rows, std::vector<T>(cols, T(0)));
-        for (size_t i = 0; i < rows; ++i)
-            for (size_t j = 0; j < cols; ++j)
-                negElems[i][j] = -elems[i][j];
-        return Matrix(negElems);
-    }
-
-    static Matrix zero() { return Matrix({{0, 0}, {0, 0}}); }
-    static Matrix one() { return Matrix({{1, 0}, {0, 1}}); }
-};
-
-*/
 #endif // MATRIX_HPP
